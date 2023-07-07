@@ -1,0 +1,38 @@
+.bg-books{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-container{
+    width: 60vw;
+    height: 40vh;
+    background-color: rgba(69, 72, 71, 0.8);
+    color: white;
+    border-radius: 5px;
+    padding: 20px;
+    
+
+}
+
+.home-container h1{
+    font-weight: 700;
+    text-align: center;
+}
+
+.home-container p{
+    font-style: italic;
+    text-align: right;
+}
+
+.home-container form{
+   display: flex;
+   justify-content: center;
+}
+
+.home-container input{
+    padding: 10px;
+
+}
