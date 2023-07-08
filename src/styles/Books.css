@@ -1,12 +1,13 @@
 .books-grid{
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 5px;
-    flex-wrap: wrap;
-    padding: 20px
+    padding: 20px;
+    align-items: stretch; 
 
 }
 
-.book{
+.grid-iten{
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -16,12 +17,12 @@
     align-items: center;
 }
 
-.book img{
+.grid-iten img{
     height: 200px;
     max-width: 180px;
 }
 
-.book p{
+.grid-iten p{
     text-align: center;
     font-style: italic;
 }

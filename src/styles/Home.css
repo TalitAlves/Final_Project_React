@@ -8,7 +8,7 @@
 
 .home-container{
     width: 60vw;
-    height: 40vh;
+    height: 50vh;
     background-color: rgba(69, 72, 71, 0.8);
     color: white;
     border-radius: 5px;
@@ -29,10 +29,29 @@
 
 .home-container form{
    display: flex;
-   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap:10px
 }
 
 .home-container input{
     padding: 10px;
+   
 
 }
+.home-container button{
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    background-color: #98270d;
+    color: white;
+    font-weight: 500;
+    
+
+}
+.home-container button:hover{
+    background-color: #a7432d;
+    
+}
+

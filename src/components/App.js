@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Books from "./Books";
 import Navbar from "./Navbar";
-import {Route, Routes} from 'react-router-dom'
+import { Route, Routes } from "react-router-dom";
 import Home from "./Home";
+import FilterBook from "./FilterBook";
 
 function App() {
-  const [searchBook, setSearchbook] = useState("romance");
+  const [searchBook, setSearchbook] = useState("Romance");
   const [apiResponse, setApiResponse] = useState([]);
-  const [language, setLanguage] = useState("es")
-  const [maxResults, setMaxResults] = useState(10)
+  const [language, setLanguage] = useState("es");
+  const [maxResults, setMaxResults] = useState(10);
   const API_KEY = `AIzaSyBGxIuI-3_Ft83HA5HWqEiwEnyj25fEnpA`;
 
   useEffect(() => {
@@ -20,26 +21,48 @@ function App() {
     )
       .then((response) => {
         console.log(response);
+
         setApiResponse(response.data.items);
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch((error) => {});
   }, [searchBook, language, maxResults, API_KEY]);
 
-  const addBooks = () =>{
-    if(maxResults <= 100){
-    setMaxResults(maxResults  + 5)
-  } }
+  const addBooks = () => {
+    if (maxResults <= 100) {
+      setMaxResults(maxResults + 5);
+    }
+  };
 
-     
-  
   return (
     <div className="App">
-    <Navbar/>
-    <Routes>
-    <Route path="/" element={<Home setSearchbook={setSearchbook} apiResponse={apiResponse}  addBooks={addBooks}/>}/>
-    <Route path="/list" element ={<Books apiResponse={apiResponse}  addBooks={addBooks}/>}/> 
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              setSearchbook={setSearchbook}
+              apiResponse={apiResponse}
+              addBooks={addBooks}
+            />
+          }
+        />
+        <Route
+          path="/amor"
+          element={<Books apiResponse={apiResponse} addBooks={addBooks} />}
+        />
+        <Route
+          path="/list"
+          element={
+            <FilterBook
+              apiResponse={apiResponse}
+              addBooks={addBooks}
+              language={language}
+              setLanguage={setLanguage}
+              setSearchbook={setSearchbook}
+            />
+          }
+        />
       </Routes>
     </div>
   );
