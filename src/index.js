@@ -6,12 +6,15 @@ import {BrowserRouter} from 'react-router-dom'
 
 
 import App from './components/App'; //components
+import { ApiContextProvider } from './context/api';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+ 
     <BrowserRouter>
+    <ApiContextProvider>
       <App />
+      </ApiContextProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  
 );

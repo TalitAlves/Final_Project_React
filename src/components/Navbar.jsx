@@ -39,7 +39,7 @@ function Navbar() {
                
               </li>
               <li className="nav-item">
-               <Link className="nav-link">Favorites</Link>
+               <Link className="nav-link" to="/list/:id">Favorites</Link>
               </li>
             </ul>
           </div>

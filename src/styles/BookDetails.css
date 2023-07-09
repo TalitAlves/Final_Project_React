@@ -1,0 +1,19 @@
+.details-container{
+    padding: 20px;
+}
+
+.img-info{
+    display: flex;
+}
+
+.img-info img{
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.img-info .info{
+    margin-left: 80px;
+    margin-top: 30px;
+
+
+}

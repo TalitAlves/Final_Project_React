@@ -1,23 +1,28 @@
-import React from 'react'
-import '../styles/Books.css'
-import bookcover from '../img/bookcover.jfif'
+import React from "react";
+import "../styles/Books.css";
+import bookcover from "../img/bookcover.jfif";
+import { Link } from "react-router-dom";
 
-function Book({book}) {
+function Book({ book }) {
   return (
-   <>
-      <p> {book.volumeInfo.title}</p>
-              <div>
-                {book.volumeInfo.imageLinks?.thumbnail ? (
-                  <img
-                    src={book.volumeInfo.imageLinks.thumbnail}
-                    alt={book.volumeInfo.title}
-                  />
-                ) : <img src={bookcover} alt='bookcover' />}
-              </div>
-             
+    <>
+     
+        {book.volumeInfo.imageLinks?.thumbnail ? (
+          <img
+            className="grid-iten-imagem"
+            src={book.volumeInfo.imageLinks.thumbnail}
+            alt={book.volumeInfo.title}
+          />
+        ) : (
+          <img className="grid-iten-imagem" src={bookcover} alt="bookcover" />
+        )}
+        <p> {book.volumeInfo.title}</p>
+        <button  className="seeMore-btn">
+          <Link to={`${book.id}`}>Details</Link>
+        </button>
+      
     </>
-
-  )
+  );
 }
 
-export default Book
+export default Book;

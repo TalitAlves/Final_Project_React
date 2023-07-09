@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../styles/Home.css";
 import bgbook from "../img/bg-books.webp";
 import Books from "./Books";
+import { ApiContext } from "../context/api";
 
-function Home({ setSearchbook, apiResponse, addBooks }) {
+function Home() {
+  const { setSearchbook } = useContext(ApiContext);
   const [searchInput, setSearchInput] = useState("");
   const [showBooks, setShowBooks] = useState(false);
   const secaoAlvo = document.getElementById("booksSession");
@@ -42,17 +44,11 @@ function Home({ setSearchbook, apiResponse, addBooks }) {
               placeholder="Search for a book"
               onChange={handleInput}
             />
-            <button onClick={goToBooksSession}>
-              Submit
-            </button>
+            <button onClick={goToBooksSession}>Submit</button>
           </form>
         </div>
       </div>
-      <div id="booksSession">
-        {showBooks ? (
-          <Books apiResponse={apiResponse} addBooks={addBooks} />
-        ) : null}
-      </div>
+      <div id="booksSession">{showBooks ? <Books /> : null}</div>
     </div>
   );
 }
