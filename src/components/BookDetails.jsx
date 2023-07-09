@@ -48,7 +48,7 @@ function BookDetails() {
             <p>Number of pages: {book.pageCount}</p>
             <p>Publisher: {book.publisher}</p>
             <p>Publish date: {book.publishedDate}</p>
-            <p>Category: {book.categories[0]}</p>
+            <p>Category:{book.categories && book.categories.length > 0 ? book.categories[0] : 'N/A'}</p>
             </div>
           </div>
           <h1>{book.title}</h1>
