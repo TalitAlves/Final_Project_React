@@ -4,7 +4,7 @@ import "../styles/Register.css";
 import bgbook from "../img/bg-books.webp";
 import { Link } from "react-router-dom";
 
-const Register = ({ toggleForm }) => {
+const Register = ({loginUser}) => {
   const { register, handleSubmit } = useForm();
   const navigate = useNavigate();
 
@@ -14,16 +14,17 @@ const Register = ({ toggleForm }) => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(formData),
     })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    .then((response) => response.json())
+    .then((data) => {
+      loginUser(data);
+      navigate("/");
+    })
+    .catch((error) => {
+      
+      
+    });
 
-    navigate("/login");
-
-    // console.log(formData);
+   
   };
   return (
     <div style={{ backgroundImage: `url(${bgbook})` }} className="form-container">

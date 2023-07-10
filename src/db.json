@@ -1,10 +1,25 @@
 {
   "users": [
-    
     {
+      "name": "Talita",
+      "lastName": "Alves Gomes",
       "email": "talita.alves@bootcamp-upgrade.com",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "Anacleta",
+      "lastName": "user",
+      "email": "anacleta@upgrade.com",
       "password": "12345",
-      "id": 3
+      "id": 5
+    },
+    {
+      "name": "Luiz Felipe",
+      "lastName": "user",
+      "email": "lf@user.com.br",
+      "password": "123456",
+      "id": 6
     }
   ]
 }

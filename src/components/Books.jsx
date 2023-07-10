@@ -28,9 +28,9 @@ function Books() {
             idSet.add(book.id);
 
             return (
-              <>
+              <div  className="grid-iten" key={book.id}>
                 <Book book={book} />
-              </>
+                </div>
             );
           })}
         </div>

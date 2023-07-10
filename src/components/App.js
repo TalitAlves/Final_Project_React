@@ -42,7 +42,7 @@ function App() {
         <Route path="/list" element={<FilterBook />} />
         <Route path="/list/:id" element={<BookDetails />} />
         <Route path="/:id" element={<BookDetails />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/register" element={<Register loginUser={isUserCreated} />} />
         <Route path="/login" element={<Login loginUser={isUserCreated} />} />
         <Route
           path="/favorites"

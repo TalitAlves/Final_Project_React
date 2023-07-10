@@ -13,7 +13,7 @@ function Book({ book }) {
   const icon = isFavorite ? unfavorite : favorite 
   
   return (
-    <div className="grid-iten" key={book.id}>
+    <>
       <div>
       {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? (
           <img
@@ -35,7 +35,7 @@ function Book({ book }) {
       <div className="favoriteIcon">
         <img src={icon} alt="icon" onClick={()=> addFavorites(book)}/>
       </div>
-    </div>
+    </>
   );
 }
 

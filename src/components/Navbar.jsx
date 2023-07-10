@@ -36,25 +36,19 @@ function Navbar({ onlogout }) {
                   Books
                 </Link>
               </li>
-
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">
-                  Register
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-
               <li className="nav-item">
                 <Link className="nav-link" to="/favorites">
                   Favorites
                 </Link>
               </li>
+            </ul>
 
-              <li></li>
+            <ul className="navbar-nav ml-auto navbar-custom">
+              <li className="nav-item">
+                <Link className="nav-link nav-item login" to="/login">
+                    Login
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
