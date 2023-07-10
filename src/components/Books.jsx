@@ -4,9 +4,11 @@ import Book from "./Book";
 import { ApiContext } from "../contexts/api";
 
 
+
 function Books() {
   const { apiResponse } = useContext(ApiContext);
   const { addBooks } = useContext(ApiContext);
+ 
 
 
   const goToTop = () => {
@@ -26,9 +28,9 @@ function Books() {
             idSet.add(book.id);
 
             return (
-              <div key={book.id} className="grid-iten">
+              <>
                 <Book book={book} />
-              </div>
+              </>
             );
           })}
         </div>

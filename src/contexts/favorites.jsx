@@ -1,9 +1,9 @@
 import { createContext, useContext, useState } from "react";
 
-
 export const FavoritesContext = createContext();
+FavoritesContext.displayName = "MyFavorites"
 
-export const FavoritesProvider = (({ children }) =>{
+export const FavoritesProvider = ({ children }) => {
   const [favorites, setFavorites] = useState([]);
 
   return (
@@ -11,30 +11,31 @@ export const FavoritesProvider = (({ children }) =>{
       {children}
     </FavoritesContext.Provider>
   );
-})
+};
 
 //hook personalisado
 export function useFavoriteContext() {
-    const {favorites, setFavorites} = useContext()
+  const { favorites, setFavorites } = useContext(FavoritesContext);
 
-    function addFavorites(newFavorite){
+  function addFavorites(newFavorite) {
+    const repeatedFavorites = favorites.some(
+      (item) => item.id === newFavorite.id
+    );
+    let newList = [...favorites];
 
-        let newFavoriteList  = [...favorites]
-
-        const repeatedFavorites = favorites.some((item)=>item.id === newFavorite   )
-
-        if(!repeatedFavorites){
-            newFavoriteList.push(newFavorite)
-            return setFavorites(newFavorite)
-        }
-
-        newFavoriteList = favorites.filter((fav)=>fav.id === newFavorite.id)
-        return( setFavorites(newFavoriteList))
-
+    if (!repeatedFavorites) {
+      newList.push(newFavorite);
+      return setFavorites(newList);
     }
 
-    return{
-      favorites,
-      addFavorites
-    }
+    newList = favorites.filter((fav) => fav.id !== newFavorite.id);
+    return setFavorites(newList);
+  }
+
+
+
+  return {
+    favorites,
+    addFavorites,
+  };
 }

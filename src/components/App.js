@@ -10,12 +10,14 @@ import Register from "./Register";
 import Login from "./Login";
 import { useState } from "react";
 import db from "../db.json";
-
+import Favorites from "./Favorites";
+import { UserContextAuth } from "../contexts/UserContext";
+import AuthRoute from "./AuthRoute/AuthRoute";
 
 function App() {
-    
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
 
   const isUserCreated = (formData) => {
     const user = db.users.find(
@@ -24,16 +26,16 @@ function App() {
     );
     if (user) {
       setUser(user);
-      return !!user;
+      navigate("/");
     } else {
       setUser(false);
-      console.log("false");
     }
   };
 
   return (
     <div className="App">
-      <Navbar />
+      <Navbar  />
+      <UserContextAuth.Provider value={{user, setUser}}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/book" element={<Books />} />
@@ -42,7 +44,15 @@ function App() {
         <Route path="/:id" element={<BookDetails />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login loginUser={isUserCreated} />} />
+        <Route
+          path="/favorites"
+          element={
+            <AuthRoute user={user} component={<Favorites />} />
+          }
+        />
+       
       </Routes>
+      </UserContextAuth.Provider>
     </div>
   );
 }
