@@ -2,6 +2,8 @@ import React from "react";
 import "../styles/Books.css";
 import bookcover from "../img/bookcover.jfif";
 import { Link } from "react-router-dom";
+import favorite from '../img/favorite.png'
+import unfavorite from '../img/unfavorite.png'
 
 function Book({ book }) {
   return (
@@ -20,7 +22,9 @@ function Book({ book }) {
         <button  className="seeMore-btn">
           <Link to={`${book.id}`}>Details</Link>
         </button>
-      
+        <div className="favoriteIcon"> 
+        <img src={unfavorite} alt="unfavorite" />
+        </div>
     </>
   );
 }

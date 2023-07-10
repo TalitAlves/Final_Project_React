@@ -1,44 +1,73 @@
 import { useForm } from "react-hook-form";
-import {useNavigate} from "react-router-dom"
-import axios from "axios";
-const Register = () => {
-  const { register, handleSubmit } = useForm();
-  const navigate = useNavigate()
-  
-  const onSubmit = (formData) => {
-   fetch(`http://localhost:8000/users`,{
-    method:"POST",
-    headers:{"content-type": "application.json"},
-    body:JSON.stringify(formData)
-   }).then((response)=>{
-        console.log(response)
-   }).catch((error)=>{
-        console.log(error)
-   })
+import { useNavigate } from "react-router-dom";
+import "../styles/Register.css";
+import bgbook from "../img/bg-books.webp";
+import { Link } from "react-router-dom";
 
-   
-    
-    
-    navigate("/login")
+const Register = ({ toggleForm }) => {
+  const { register, handleSubmit } = useForm();
+  const navigate = useNavigate();
+
+  const onSubmit = (formData) => {
+    fetch(`http://localhost:8000/users`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(formData),
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    navigate("/login");
 
     // console.log(formData);
   };
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor='email'>Email:</label>
-      <input
-        type='email'
-        id='email'
-        {...register("email", { required: true })}
-      />
-      <label htmlFor='password'>Password:</label>
-      <input
-        type='password'
-        id='password'
-        {...register("password", { required: true })}
-      />
-      <button type='submit'>Registrate</button>
-    </form>
+    <div style={{ backgroundImage: `url(${bgbook})` }} className="form-container">
+    <form onSubmit={handleSubmit(onSubmit)} className="registerForm">
+    <h1>User Registration </h1>
+     <label htmlFor="name">
+          Name
+        </label>
+        <input
+          type="text"
+          id="name"
+          {...register("name", { required: true })}
+        />
+        <label htmlFor="lastName">
+          Last name
+        </label>
+        <input
+          type="text"
+          id="lastName"
+          {...register("lastName", { required: true })}
+        />
+        <label htmlFor="email" className="registerLabel">
+          Email:
+        </label>
+        <input
+          type="email"
+          id="email"
+          {...register("email", { required: true })}
+        />
+        <label htmlFor="password">
+          Password:
+        </label>
+        <input
+          type="password"
+          id="password"
+          {...register("password", { required: true })}
+        />
+        <div className="button-container">
+        <button type="submit">Register</button>
+        <button> <Link to="/login">Already have an account? Login here.</Link></button>
+        </div>
+      </form>
+     
+    </div>
   );
 };
 

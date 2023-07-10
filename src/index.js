@@ -6,14 +6,17 @@ import {BrowserRouter} from 'react-router-dom'
 
 
 import App from './components/App'; //components
-import { ApiContextProvider } from './context/api';
+import { ApiContextProvider } from './contexts/api';
+import { FavoritesProvider } from './contexts/favorites';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
  
     <BrowserRouter>
     <ApiContextProvider>
+    <FavoritesProvider>
       <App />
+      </FavoritesProvider>
       </ApiContextProvider>
     </BrowserRouter>
   

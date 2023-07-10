@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import "../styles/Books.css";
 import Book from "./Book";
-import { ApiContext } from "../context/api";
+import { ApiContext } from "../contexts/api";
+
 
 function Books() {
   const { apiResponse } = useContext(ApiContext);
   const { addBooks } = useContext(ApiContext);
-  console.log(apiResponse);
+
 
   const goToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -38,6 +39,7 @@ function Books() {
           <button className="go-to-top-btn" onClick={goToTop}>
             ʌ
           </button>
+          
         </div>
       </div>
     );
