@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "../styles/Books.css";
 import Book from "./Book";
 import { ApiContext } from "../contexts/api";
+import Button from "./Button";
 
 
 
@@ -35,9 +36,7 @@ function Books() {
           })}
         </div>
         <div className="btn-container">
-          <button onClick={addBooks} className="book-grid-btn">
-            See more
-          </button>
+           <Button onClick={addBooks} message={"See more"} style={{width:"70%", margin:"0 auto"}}/>
           <button className="go-to-top-btn" onClick={goToTop}>
             ʌ
           </button>

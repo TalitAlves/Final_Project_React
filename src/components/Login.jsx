@@ -1,16 +1,18 @@
 import { useForm } from "react-hook-form";
 import "../styles/Register.css";
 import bgbook from "../img/bg-books.webp";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,  } from "react-router-dom";
+import Button from "./Button";
+
 
 const Login = ({ loginUser }) => {
   const { register, handleSubmit } = useForm();
-  const navigate = useNavigate()
+  
   
 
   const onSubmit = (formData) => {
     loginUser(formData);
-    navigate("/");
+       
   };
 
   
@@ -36,7 +38,7 @@ const Login = ({ loginUser }) => {
         />
         <div className="button-container">
         <button type="submit">Login</button>
-        <button > <Link to="/register">Don't have an account?  Register here.</Link></button>
+        <Link to="/register" style={{width:"100%"}}> <Button message={"Don't have an account?  Register here."}/></Link>
         </div>
       </form>
      

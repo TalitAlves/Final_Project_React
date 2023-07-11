@@ -14,6 +14,7 @@ import Favorites from "./Favorites";
 import { UserContextAuth } from "../contexts/UserContext";
 import AuthRoute from "./AuthRoute/AuthRoute";
 import Logout from "./Logout";
+import { ToastContainer, toast } from "react-toastify";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -22,11 +23,11 @@ function App() {
   const navigate = useNavigate();
 
   const onLogout = () => {
-       setIsLoggedIn(false);
-       setUser(false);
-       console.log("deslogado")
+    setIsLoggedIn(false);
+    setUser(false);
+    console.log("deslogado");
   };
-  
+
   const loginUser = (formData) => {
     const user = db.users.find(
       (user) =>
@@ -34,19 +35,21 @@ function App() {
     );
     if (user) {
       setUser(user);
+      toast.success("Logged in");
       navigate("/");
-      setIsLoggedIn(true)
-      
-      console.log("login sucess")
+      setIsLoggedIn(true);
     } else {
       setUser(false);
+      toast.warning("User not fount. Create an account");
+      navigate("/register");
     }
   };
 
   return (
     <div className="App">
       <Navbar isLoggedIn={isLoggedIn} onLogout={onLogout} />
-     
+      <ToastContainer></ToastContainer>
+
       <UserContextAuth.Provider value={{ user, setUser }}>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -58,9 +61,9 @@ function App() {
             path="/register"
             element={<Register loginUser={loginUser} />}
           />
-          <Route path="/logout" element={ <Logout onLogout={onLogout} />} />
+          <Route path="/logout" element={<Logout onLogout={onLogout} />} />
           <Route path="/login" element={<Login loginUser={loginUser} />} />
-         
+
           <Route
             path="/favorites"
             element={<AuthRoute user={user} component={<Favorites />} />}

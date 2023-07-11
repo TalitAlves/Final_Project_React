@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Register.css";
 import bgbook from "../img/bg-books.webp";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
+import Button from "./Button";
 
 const Register = ({loginUser}) => {
   const { register, handleSubmit } = useForm();
@@ -18,6 +20,7 @@ const Register = ({loginUser}) => {
     .then((data) => {
       loginUser(data);
       navigate("/");
+      toast.success("Registered sucessfully!")
     })
     .catch((error) => {
       
@@ -64,7 +67,7 @@ const Register = ({loginUser}) => {
         />
         <div className="button-container">
         <button type="submit">Register</button>
-        <button> <Link to="/login">Already have an account? Login here.</Link></button>
+         <Link to="/login" style={{width:"100%"}}> <Button message={"Already have an account? Login here."}/></Link>
         </div>
       </form>
      
