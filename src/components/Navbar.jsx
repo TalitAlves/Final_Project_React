@@ -2,8 +2,9 @@ import React, { useContext, useState } from "react";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { UserContextAuth } from "../contexts/UserContext";
+import Logout from "./Logout";
 
-function Navbar({ onlogout }) {
+function Navbar({ isLoggedIn, onLogout }) {
   const { user } = useContext(UserContextAuth);
 
   return (
@@ -42,14 +43,21 @@ function Navbar({ onlogout }) {
                 </Link>
               </li>
             </ul>
+          <span className="navbar-text">
 
-            <ul className="navbar-nav ml-auto navbar-custom">
+            <ul className="navbar-nav ms-auto ">
               <li className="nav-item">
-                <Link className="nav-link nav-item login" to="/login">
-                    Login
+               {isLoggedIn===false &&<Link className="nav-link nav-item login" to="/login">
+                    Login 
                 </Link>
+               }
+              </li>
+              <li>
+              {isLoggedIn &&  <Logout onLogout={onLogout} />}
+              <li>{user && user.name} </li>
               </li>
             </ul>
+           </span> 
           </div>
         </div>
       </nav>

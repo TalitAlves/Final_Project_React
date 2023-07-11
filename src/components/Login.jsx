@@ -1,14 +1,16 @@
 import { useForm } from "react-hook-form";
 import "../styles/Register.css";
 import bgbook from "../img/bg-books.webp";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = ({ loginUser }) => {
   const { register, handleSubmit } = useForm();
+  const navigate = useNavigate()
   
 
   const onSubmit = (formData) => {
     loginUser(formData);
+    navigate("/");
   };
 
   

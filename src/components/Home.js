@@ -44,7 +44,7 @@ function Home() {
               placeholder="Search for a book"
               onChange={handleInput}
             />
-            <button onClick={goToBooksSession}>Submit</button>
+            <button onClick={goToBooksSession}>Search</button>
           </form>
         </div>
       </div>

@@ -13,13 +13,21 @@ import db from "../db.json";
 import Favorites from "./Favorites";
 import { UserContextAuth } from "../contexts/UserContext";
 import AuthRoute from "./AuthRoute/AuthRoute";
+import Logout from "./Logout";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
   const navigate = useNavigate();
 
-
-  const isUserCreated = (formData) => {
+  const onLogout = () => {
+       setIsLoggedIn(false);
+       setUser(false);
+       console.log("deslogado")
+  };
+  
+  const loginUser = (formData) => {
     const user = db.users.find(
       (user) =>
         user.email === formData.email && user.password === formData.password
@@ -27,6 +35,9 @@ function App() {
     if (user) {
       setUser(user);
       navigate("/");
+      setIsLoggedIn(true)
+      
+      console.log("login sucess")
     } else {
       setUser(false);
     }
@@ -34,24 +45,27 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar  />
-      <UserContextAuth.Provider value={{user, setUser}}>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/book" element={<Books />} />
-        <Route path="/list" element={<FilterBook />} />
-        <Route path="/list/:id" element={<BookDetails />} />
-        <Route path="/:id" element={<BookDetails />} />
-        <Route path="/register" element={<Register loginUser={isUserCreated} />} />
-        <Route path="/login" element={<Login loginUser={isUserCreated} />} />
-        <Route
-          path="/favorites"
-          element={
-            <AuthRoute user={user} component={<Favorites />} />
-          }
-        />
-       
-      </Routes>
+      <Navbar isLoggedIn={isLoggedIn} onLogout={onLogout} />
+     
+      <UserContextAuth.Provider value={{ user, setUser }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/book" element={<Books />} />
+          <Route path="/list" element={<FilterBook />} />
+          <Route path="/list/:id" element={<BookDetails />} />
+          <Route path="/:id" element={<BookDetails />} />
+          <Route
+            path="/register"
+            element={<Register loginUser={loginUser} />}
+          />
+          <Route path="/logout" element={ <Logout onLogout={onLogout} />} />
+          <Route path="/login" element={<Login loginUser={loginUser} />} />
+         
+          <Route
+            path="/favorites"
+            element={<AuthRoute user={user} component={<Favorites />} />}
+          />
+        </Routes>
       </UserContextAuth.Provider>
     </div>
   );
