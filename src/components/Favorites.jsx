@@ -12,7 +12,9 @@ function Favorites() {
       <div className="books-grid">
     
         {favorites.map((book) => (
-          <Book key={book.id} book={book} />
+          <div  className="grid-iten" key={book.id}>
+          <Book book={book} />
+          </div>
         ))}
       </div>
     </div>
