@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import "../styles/Home.css";
 import bgbook from "../img/bg-books.webp";
 import Books from "./Books";
-import { ApiContext } from "../context/api";
+import { ApiContext } from "../contexts/api";
 
 function Home() {
   const { setSearchbook } = useContext(ApiContext);
@@ -44,7 +44,7 @@ function Home() {
               placeholder="Search for a book"
               onChange={handleInput}
             />
-            <button onClick={goToBooksSession}>Submit</button>
+            <button onClick={goToBooksSession}>Search</button>
           </form>
         </div>
       </div>

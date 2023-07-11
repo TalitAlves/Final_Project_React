@@ -1,8 +1,12 @@
-import React from "react";
-import '../styles/Navbar.css'
+import React, { useContext, useState } from "react";
+import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
+import { UserContextAuth } from "../contexts/UserContext";
+import Logout from "./Logout";
 
-function Navbar() {
+function Navbar({ isLoggedIn, onLogout }) {
+  const { user } = useContext(UserContextAuth);
+
   return (
     <div>
       <nav className="navbar navbar-expand-lg navbar-custom">
@@ -24,24 +28,36 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
               <li className="nav-item">
-              
-                  <Link to="/" className="nav-link" aria-current="page">Home</Link>
-                
+                <Link to="/" className="nav-link" aria-current="page">
+                  Home
+                </Link>
               </li>
               <li className="nav-item">
-                
-                  <Link className="nav-link" to="/list">Books</Link>
-                
+                <Link className="nav-link" to="/list">
+                  Books
+                </Link>
               </li>
               <li className="nav-item">
-              
-                <Link className="nav-link">Login</Link>
-               
-              </li>
-              <li className="nav-item">
-               <Link className="nav-link" to="/list/:id">Favorites</Link>
+                <Link className="nav-link" to="/favorites">
+                  Favorites
+                </Link>
               </li>
             </ul>
+          <span className="navbar-text">
+
+            <ul className="navbar-nav ms-auto ">
+              <li className="nav-item">
+               {isLoggedIn===false &&<Link className="nav-link nav-item login" to="/login">
+                    Login 
+                </Link>
+               }
+              </li>
+              <li>
+              {isLoggedIn &&  <Logout onLogout={onLogout} />}
+              <li>{user && user.name} </li>
+              </li>
+            </ul>
+           </span> 
           </div>
         </div>
       </nav>

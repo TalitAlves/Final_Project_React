@@ -1,12 +1,15 @@
 import React, { useContext } from "react";
 import "../styles/Books.css";
 import Book from "./Book";
-import { ApiContext } from "../context/api";
+import { ApiContext } from "../contexts/api";
+
+
 
 function Books() {
   const { apiResponse } = useContext(ApiContext);
   const { addBooks } = useContext(ApiContext);
-  console.log(apiResponse);
+ 
+
 
   const goToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -25,9 +28,9 @@ function Books() {
             idSet.add(book.id);
 
             return (
-              <div key={book.id} className="grid-iten">
+              <div  className="grid-iten" key={book.id}>
                 <Book book={book} />
-              </div>
+                </div>
             );
           })}
         </div>
@@ -38,6 +41,7 @@ function Books() {
           <button className="go-to-top-btn" onClick={goToTop}>
             ʌ
           </button>
+          
         </div>
       </div>
     );
