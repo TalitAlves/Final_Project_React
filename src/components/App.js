@@ -38,10 +38,11 @@ function App() {
       toast.success("Logged in");
       navigate("/");
       setIsLoggedIn(true);
+      console.log("logado")
     } else {
       setUser(false);
-      toast.warning("User not fount. Create an account");
-      navigate("/register");
+      toast.warning("User not fount");
+     
     }
   };
 

@@ -22,28 +22,25 @@
       "id": 6
     },
     {
-      "name": "Talita",
-      "lastName": "Alves Gomes",
-      "email": "felipeaziz@gmail.com",
+      "name": "Felipe",
+      "lastName": "Ibrahim",
+      "email": "felipe@email.com",
       "password": "123456",
       "id": 7
     },
     {
+      "name": "cali",
+      "lastName": "calicali",
+      "email": "calicali@gmail.com",
+      "password": "123456",
       "id": 8
     },
     {
       "name": "Talita",
       "lastName": "Alves Gomes",
-      "email": "user@user.com.br",
+      "email": "tagahaja1234@gmail.com",
       "password": "123456",
       "id": 9
-    },
-    {
-      "name": "Talita",
-      "lastName": "Alves Gomes",
-      "email": "user@user.com.br",
-      "password": "123456",
-      "id": 10
     }
   ]
 }

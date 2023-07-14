@@ -15,23 +15,23 @@ function Book({ book }) {
   
   return (
     <>
-      <div>
+      <div className="grid-item-image">
       {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? (
           <img
-            className="grid-item-image"
+            
             src={book.volumeInfo.imageLinks.thumbnail}
             alt={book.volumeInfo.title}
           />
         ) : (
-          <img className="grid-item-image" src={bookcover} alt="bookcover" />
+          <img  src={bookcover} alt="bookcover" />
         )}
 
       </div>
       <div>
         <p> {book.volumeInfo.title}</p>
       </div>
-     
-        <Link to={`${book.id}`}><Button message="Details" /></Link>
+           
+        <Link to={`${book.id}`} className="button"><Button message="Details" /></Link>
       
       
       <div className="favoriteIcon">

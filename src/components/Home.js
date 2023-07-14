@@ -44,8 +44,9 @@ function Home() {
               type="text"
               placeholder="Search for a book"
               onChange={handleInput}
+              style={{ width: '30%' }}
             />
-            <Button onClick={goToBooksSession} message={"Search"} style={{ width: '35%' }}/>
+            <Button onClick={goToBooksSession} message={"Search"} style={{ width: '30%' }}/>
           </form>
         </div>
       </div>

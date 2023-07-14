@@ -14,7 +14,7 @@ function Navbar({ isLoggedIn, onLogout }) {
       <nav className="navbar navbar-expand-lg navbar-custom">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Navbar
+          Bookshelf Finder
           </a>
           <button
             className="navbar-toggler"
@@ -50,7 +50,7 @@ function Navbar({ isLoggedIn, onLogout }) {
               <li className="nav-item">
                 {isLoggedIn === false && (
                   <Link className="nav-link nav-item login" to="/login">
-                    <span class="material-symbols-outlined">
+                    <span className="material-symbols-outlined">
                       account_circle
                     </span>
                   </Link>

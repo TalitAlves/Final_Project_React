@@ -2,13 +2,11 @@ import { useForm } from "react-hook-form";
 import Button from "./Button";
 import { Link } from "react-router-dom";
 
-
-function Form({ onSubmit, title, login }) {
+function Form({ handleFormData, title, login }) {
   const { register, handleSubmit } = useForm();
-      
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="registerForm">
+    <form onSubmit={handleSubmit(handleFormData)} className="registerForm">
       <h1>{title}</h1>
       {login === false && (
         <>
@@ -41,21 +39,27 @@ function Form({ onSubmit, title, login }) {
         {...register("password", { required: true })}
       />
       <div className="button-container">
-        <Button onClick={onSubmit} message={login ? "Login" : "Register"} />
-        { login && <Link to="/register">
-          <Button
-            message={"Don't have an account? Register here."}
-            style={{ width: "100%" }}
-          />
-        </Link>}
-        {login=== false && 
-        <Link to="/login" style={{ width: "100%" }}>
-          <Button
-            message={"Already have an account? Login here."}
-            style={{ width: "100%" }}
-          />
-        </Link>
-        }
+        <Button
+          onClick={handleSubmit}
+          message={login ? "Login" : "Register"}
+          style={{ width: "100%" }}
+        />
+        {login && (
+          <Link to="/register" style={{ width: "100%" }}>
+            <Button
+              message={"Don't have an account? Register here."}
+              style={{ width: "100%" }}
+            />
+          </Link>
+        )}
+        {login === false && (
+          <Link to="/login" style={{ width: "100%" }}>
+            <Button
+              message={"Already have an account? Login here."}
+              style={{ width: "100%" }}
+            />
+          </Link>
+        )}
       </div>
     </form>
   );
