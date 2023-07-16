@@ -14,7 +14,7 @@ function Navbar({ isLoggedIn, onLogout }) {
       <nav className="navbar navbar-expand-lg navbar-custom">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-          Bookshelf Finder
+          Bookshelf Assistant
           </a>
           <button
             className="navbar-toggler"
