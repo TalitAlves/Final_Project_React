@@ -1,5 +1,7 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import "../styles/Navbar.css";
+import "../styles/App.css";
+
 import { Link } from "react-router-dom";
 import { UserContextAuth } from "../contexts/UserContext";
 import Logout from "./Logout";
@@ -12,7 +14,7 @@ function Navbar({ isLoggedIn, onLogout }) {
       <nav className="navbar navbar-expand-lg navbar-custom">
         <div className="container-fluid">
           <a className="navbar-brand" href="/">
-            Navbar
+          Bookshelf Assistant
           </a>
           <button
             className="navbar-toggler"
@@ -43,21 +45,23 @@ function Navbar({ isLoggedIn, onLogout }) {
                 </Link>
               </li>
             </ul>
-          <span className="navbar-text">
 
             <ul className="navbar-nav ms-auto ">
               <li className="nav-item">
-               {isLoggedIn===false &&<Link className="nav-link nav-item login" to="/login">
-                    Login 
-                </Link>
-               }
+                {isLoggedIn === false && (
+                  <Link className="nav-link nav-item login" to="/login">
+                    <span className="material-symbols-outlined">
+                      account_circle
+                    </span>
+                  </Link>
+                )}
               </li>
               <li>
-              {isLoggedIn &&  <Logout onLogout={onLogout} />}
-              <li>{user && user.name} </li>
+                {isLoggedIn && <Logout onLogout={onLogout} />}
+             
+                <span>{user && user.name} </span>
               </li>
             </ul>
-           </span> 
           </div>
         </div>
       </nav>

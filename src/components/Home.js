@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import bgbook from "../img/bg-books.webp";
 import Books from "./Books";
 import { ApiContext } from "../contexts/api";
+import Button from "./Button";
 
 function Home() {
   const { setSearchbook } = useContext(ApiContext);
@@ -43,8 +44,9 @@ function Home() {
               type="text"
               placeholder="Search for a book"
               onChange={handleInput}
+              style={{ width: '30%' }}
             />
-            <button onClick={goToBooksSession}>Search</button>
+            <Button onClick={goToBooksSession} message={"Search"} style={{ width: '30%' }}/>
           </form>
         </div>
       </div>

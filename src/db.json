@@ -20,6 +20,27 @@
       "email": "lf@user.com.br",
       "password": "123456",
       "id": 6
+    },
+    {
+      "name": "Felipe",
+      "lastName": "Ibrahim",
+      "email": "felipe@email.com",
+      "password": "123456",
+      "id": 7
+    },
+    {
+      "name": "cali",
+      "lastName": "calicali",
+      "email": "calicali@gmail.com",
+      "password": "123456",
+      "id": 8
+    },
+    {
+      "name": "Talita",
+      "lastName": "Alves Gomes",
+      "email": "tagahaja1234@gmail.com",
+      "password": "123456",
+      "id": 9
     }
   ]
 }

@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import favorite from "../img/favorite.png";
 import unfavorite from "../img/unfavorite.png";
 import { useFavoriteContext } from "../contexts/favorites";
+import Button from "./Button";
 
 function Book({ book }) {
   const {favorites, addFavorites} = useFavoriteContext()
@@ -14,24 +15,25 @@ function Book({ book }) {
   
   return (
     <>
-      <div>
+      <div className="grid-item-image">
       {book.volumeInfo.imageLinks && book.volumeInfo.imageLinks.thumbnail ? (
           <img
-            className="grid-item-image"
+            
             src={book.volumeInfo.imageLinks.thumbnail}
             alt={book.volumeInfo.title}
           />
         ) : (
-          <img className="grid-item-image" src={bookcover} alt="bookcover" />
+          <img  src={bookcover} alt="bookcover" />
         )}
 
       </div>
       <div>
         <p> {book.volumeInfo.title}</p>
       </div>
-      <button className="seeMore-btn">
-        <Link to={`${book.id}`}>Details</Link>
-      </button>
+           
+        <Link to={`${book.id}`} className="button"><Button message="Details" /></Link>
+      
+      
       <div className="favoriteIcon">
         <img src={icon} alt="icon" onClick={()=> addFavorites(book)}/>
       </div>

@@ -16,12 +16,18 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
   padding: 5px;
+  gap:5px
 }
 
-.grid-iten-imagem {
+
+.grid-item-image {
   height: 200px;
   max-width: 180px;
   margin-bottom: 10px;
+  justify-self:  flex-start
+  
+
+ 
 }
 
 .grid-iten p {
@@ -36,18 +42,8 @@
   justify-content: center;
 }
 
-.book-grid-btn {
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  width: 60vw;
-  background-color: #98270d;
-  color: white;
-  font-weight: 500;
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 5px;
-}
+
+
 
 .go-to-top-btn {
   position: fixed;
@@ -81,22 +77,10 @@
   line-height: 30px;
 }
 
-.seeMore-btn {
-  border: none;
-  border-radius: 5px;
-  background-color: #98270d;
-  color: white;
-  font-weight: 500;
-  margin: 0 auto;
-  display: block;
-  margin-bottom: 5px;
+.button{
+    align-self: center;
 }
 
-.seeMore-btn a {
-  text-decoration: none;
-  color: white;
-  font-weight: 400;
-}
 
 .favoriteIcon {
   display: flex;
@@ -108,7 +92,7 @@
   height: 35px;
   position: absolute;
   margin-left: 55px;
-  margin-bottom: 3px;
+  margin-bottom: 12px;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -120,6 +104,7 @@
 .favoriteIcon img:hover {
   cursor: pointer;
   background-color: #00000000;
+  
 }
 
 .favorite-container{
@@ -128,4 +113,9 @@
 
 .favorite-container h1{
   text-align: center;
+}
+
+a{
+  text-decoration:  none;
+  color: white
 }
