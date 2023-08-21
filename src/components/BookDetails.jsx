@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import bookcover from "../img/bookcover.jfif";
 import "../styles/BookDetails.css";
+import { Link } from "react-router-dom";
 
 function BookDetails() {
   const { id } = useParams();
@@ -13,7 +14,6 @@ function BookDetails() {
     axios
       .get(`https://www.googleapis.com/books/v1/volumes/${id}?key=${API_KEY}`)
       .then((response) => {
-        console.log(response);
         setBook(response.data.volumeInfo);
       })
       .catch((error) => {});
@@ -41,14 +41,29 @@ function BookDetails() {
               )}
             </div>
             <div className="info">
-            <p>Author: {" "}
-          {book.authors &&
-            book.authors.map((author) => <span key={author}>{author}</span>)}
-            </p>
-            <p>Number of pages: {book.pageCount}</p>
-            <p>Publisher: {book.publisher}</p>
-            <p>Publish date: {book.publishedDate}</p>
-            <p>Category:{book.categories && book.categories.length > 0 ? book.categories[0] : 'N/A'}</p>
+              <p>
+                Author:{" "}
+                {book.authors &&
+                  book.authors.map((author) => (
+                    <span key={author}>{author}</span>
+                  ))}
+              </p>
+              <p>Number of pages: {book.pageCount}</p>
+              <p>Publisher: {book.publisher}</p>
+              <p>Publish date: {book.publishedDate}</p>
+              <p>
+                Category:
+                {book.categories && book.categories.length > 0
+                  ? book.categories[0]
+                  : "N/A"}
+              </p>
+            </div>
+            <div className="btn-back">
+              <Link to="/list">
+                <button className="btn-primary">
+                  <span class="material-symbols-outlined">undo</span>
+                </button>
+              </Link>
             </div>
           </div>
           <h1>{book.title}</h1>

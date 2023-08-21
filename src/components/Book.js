@@ -23,7 +23,7 @@ function Book({ book }) {
             alt={book.volumeInfo.title}
           />
         ) : (
-          <img  src={bookcover} alt="bookcover" />
+          <img  src={bookcover} alt="bookcover" style={{width:"100%"}}/>
         )}
 
       </div>

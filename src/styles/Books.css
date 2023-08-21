@@ -16,18 +16,14 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 5px;
   padding: 5px;
-  gap:5px
+  gap: 5px;
 }
-
 
 .grid-item-image {
   height: 200px;
-  max-width: 180px;
+  max-width: 100%;
   margin-bottom: 10px;
-  justify-self:  flex-start
-  
-
- 
+  justify-self: flex-start;
 }
 
 .grid-iten p {
@@ -41,9 +37,6 @@
   display: flex;
   justify-content: center;
 }
-
-
-
 
 .go-to-top-btn {
   position: fixed;
@@ -77,10 +70,9 @@
   line-height: 30px;
 }
 
-.button{
-    align-self: center;
+.button {
+  align-self: center;
 }
-
 
 .favoriteIcon {
   display: flex;
@@ -97,25 +89,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
- padding: 5px;
- background-color: #00000050;
+  padding: 5px;
+  background-color: #00000050;
 }
 
 .favoriteIcon img:hover {
   cursor: pointer;
   background-color: #00000000;
-  
 }
 
-.favorite-container{
+.favorite-container {
   margin: 10px;
 }
 
-.favorite-container h1{
+.favorite-container h1 {
   text-align: center;
 }
 
-a{
-  text-decoration:  none;
-  color: white
+a {
+  text-decoration: none;
+  color: white;
 }

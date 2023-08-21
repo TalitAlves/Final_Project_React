@@ -17,3 +17,15 @@
 
 
 }
+
+.btn-back{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    border: none;
+     cursor: pointer;
+    
+}

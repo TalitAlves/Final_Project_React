@@ -25,7 +25,8 @@ function App() {
   const onLogout = () => {
     setIsLoggedIn(false);
     setUser(false);
-    console.log("deslogado");
+    toast.success("User logged out successfully");
+    
   };
 
   const loginUser = (formData) => {
@@ -38,7 +39,7 @@ function App() {
       toast.success("Logged in");
       navigate("/");
       setIsLoggedIn(true);
-      console.log("logado")
+    
     } else {
       setUser(false);
       toast.warning("User not fount");
